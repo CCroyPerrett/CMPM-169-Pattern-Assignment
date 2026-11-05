@@ -1,5 +1,6 @@
 let incriment = 0.02;
-let patternshift = 0;
+let patternscrollx = 0; patternscrolly = 0;
+let patternscrollxspeed = 0.04; let patternscrollyspeed = 0.04;
 
 function setup() {
   createCanvas(400, 400);
@@ -10,7 +11,7 @@ function draw() {
   
   for (let x = 0; x < width; x++) {
     for (let y = 0; y < height; y++) {
-      let noiseVal = noise(x * incriment, y * incriment, patternshift);
+      let noiseVal = noise(x * incriment+patternscrollx, y * incriment+patternscrolly);
       let bright = map(noiseVal, 0, 1, 0, 255);
       
       let index = (x + y * width) * 4;
@@ -21,7 +22,8 @@ function draw() {
     }
   }
   
-  patternshift += 0.01;
+  patternscrollx += patternscrollxspeed;
+  patternscrolly += patternscrollyspeed;
   updatePixels();
 }
 
