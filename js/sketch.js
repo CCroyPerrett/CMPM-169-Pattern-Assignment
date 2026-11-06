@@ -1,6 +1,7 @@
 let incriment = 0.02;
 let patternscrollx = 0; patternscrolly = 0;
 let patternscrollxspeed = 0.04; let patternscrollyspeed = 0.04;
+let pause = false;
 
 function setup() {
   createCanvas(400, 400);
@@ -22,8 +23,23 @@ function draw() {
     }
   }
   
-  patternscrollx += patternscrollxspeed;
-  patternscrolly += patternscrollyspeed;
+  if(pause == false){
+    patternscrollx += patternscrollxspeed;
+    patternscrolly += patternscrollyspeed;
+  }
   updatePixels();
 }
+
+function pauseresume(){
+  pause = !pause;
+}
+
+function leftright(){
+  patternscrollxspeed *= -1;
+}
+
+function updown(){
+  patternscrollyspeed *= -1;
+}
+
 
