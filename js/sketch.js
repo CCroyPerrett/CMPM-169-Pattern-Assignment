@@ -130,5 +130,19 @@ function scrollspeed(){
   }
 }
 
+function resetseed(){
+  let newseed = Number(document.getElementById("ramseed").value);
+  noiseSeed(newseed);
+
+  points = [];
+  randomSeed(newseed);
+  for (let i = 0; i < numPoints; i++) {
+    points.push({
+      x: random(width),
+      y: random(height),
+      color: color(random(50, 255), random(50, 255), random(50, 255))
+    });
+  }
+}
 
 
