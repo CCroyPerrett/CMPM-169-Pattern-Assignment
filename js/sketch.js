@@ -42,4 +42,21 @@ function updown(){
   patternscrollyspeed *= -1;
 }
 
+function scrollspeed(){
+  let speedslider = document.getElementById("speedslider");
+  if(patternscrollxspeed < 0){
+    patternscrollxspeed = -0.04 * speedslider.value;
+  }
+  else{
+    patternscrollxspeed = 0.04 * speedslider.value;
+  }
+
+  if(patternscrollyspeed < 0){
+    patternscrollyspeed = -0.04 * speedslider.value;
+  }
+  else{
+    patternscrollyspeed = 0.04 * speedslider.value;
+  }
+}
+
 
